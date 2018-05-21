@@ -5,10 +5,12 @@ var roleHarvester = require('role.harvester');
 var roleWorker = require('role.worker');
 var roleSoldier = require('role.soldier');
 
+var tower = require('build.towers')
 
 module.exports.loop = function () {
     cleaner.tick()
     spawner.tick()
+    tower.tick()
     
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
