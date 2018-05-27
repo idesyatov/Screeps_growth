@@ -27,14 +27,14 @@ module.exports = {
             workerCount: 4,
             worker: [WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE],
             builderCount: 2,
-            builder: [WORK, WORK, MOVE],
+            builder: [WORK, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE],
             soldier: [ATTACK, ATTACK, ATTACK, MOVE, MOVE, MOVE]
         },
         {
             workerCount: 4,
             worker: [WORK, WORK, WORK, WORK, MOVE, MOVE, MOVE, MOVE, CARRY, CARRY, CARRY, CARRY],
             builderCount: 2,
-            builder: [WORK, WORK, MOVE],
+            builder: [WORK, WORK, WORK, WORK, MOVE, MOVE, MOVE, MOVE, CARRY, CARRY, CARRY, CARRY],
             soldier: [ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE]
         }
     ],

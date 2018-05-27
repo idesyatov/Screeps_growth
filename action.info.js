@@ -13,5 +13,6 @@ module.exports = {
                 Game.creeps, (creep) => 
                 creep.memory.role == i).length);
         }
+        console.log(Game.FIND_SOURCES_ACTIVE)
     }
 }
