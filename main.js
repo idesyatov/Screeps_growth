@@ -2,6 +2,8 @@ var cleaner = require('action.cleaner');
 var spawn = require('action.spawn');
 var info = require('action.info');
 
+var tower = require('building.tower')
+
 var roleHarvester = require('role.harvester');
 var roleWorker = require('role.worker');
 var roleSoldier = require('role.soldier');
@@ -11,6 +13,7 @@ module.exports.loop = function () {
     cleaner.tick()
     info.tick()
     spawn.tick()
+    tower.tick()
     
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
