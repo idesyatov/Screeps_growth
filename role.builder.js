@@ -20,9 +20,16 @@ var roleBuilder = {
             }
         }
         else {
-            var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
+            if (creep.memory.target === undefined) {
+                var sources = creep.room.find(FIND_SOURCES);
+                let source = sources[Math.floor(Math.random() * sources.length)];
+              creep.memory.target = source.id;
+            }
+        
+            let source = Game.getObjectById(creep.memory.target);
+            if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
+                creep.say("builder harv")
+                creep.moveTo(source, {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
     }
