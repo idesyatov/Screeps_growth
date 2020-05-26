@@ -1,33 +1,19 @@
-var cleaner = require('action.cleaner');
-var spawn = require('action.spawn');
-var info = require('action.info');
+const Debug = require('./debug');
+const MainOp = require('./mainOp');
+const version = require('./version');
 
-var tower = require('building.tower')
+let debug = new Debug;
+/**@type {any}*/(Game).debug = debug;
+let mainOp = new MainOp;
 
-var roleHarvester = require('role.harvester');
-var roleWorker = require('role.worker');
-var roleSoldier = require('role.soldier');
-var roleBuilder = require('role.builder');
-
-module.exports.loop = function () {
-    cleaner.tick()
-    info.tick()
-    spawn.tick()
-    tower.tick()
-    
-    for(var name in Game.creeps) {
-        var creep = Game.creeps[name];
-        if(creep.memory.role == 'harvester') {
-            roleHarvester.run(creep);
-        }
-        if(creep.memory.role == 'worker') {
-            roleWorker.run(creep);
-        }
-        if(creep.memory.role == 'soldier') {
-            roleSoldier.run(creep);
-        }
-        if(creep.memory.role == 'builder') {
-            roleBuilder.run(creep);
-        }
+module.exports.loop = function() {
+    /**@type {any}*/(Game).debug = debug;
+    /**@type {any}*/(Game).main = mainOp;
+    mainOp.initTick();
+    mainOp.run();
+    if (debug.verbose) {
+        debug.printVerboseLog();
+        debug.verbose = false;
     }
-};
+    debug.throwErrors();
+}

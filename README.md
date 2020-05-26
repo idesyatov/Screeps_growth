@@ -1,5 +1,3 @@
-# Build order v 0.1 (:
+## let's start execute js at server... mf
 
-## For the swarm!
-
-#### Now it can build workers and develop the economy and military defenses against enemy attacks
+#### meaninglessness ahead
