@@ -6,6 +6,7 @@ let debug = new Debug;
 /**@type {any}*/(Game).debug = debug;
 let mainOp = new MainOp;
 
+// test
 module.exports.loop = function() {
     /**@type {any}*/(Game).debug = debug;
     /**@type {any}*/(Game).main = mainOp;
